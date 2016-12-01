@@ -36,9 +36,11 @@ android {
 }
 
 dependencies {
+  testCompile "junit:junit:4.12"
+
   compile fileTree(include: ['*.jar'], dir: 'libs')
 
   compile 'com.android.support:appcompat-v7:25.0.0'
 
-  compile 'cm.aptoide.pt:aptoidesdk:0.0.1'
+  compile 'cm.aptoide.pt:aptoidesdk:0.0.4'
 }
