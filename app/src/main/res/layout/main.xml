@@ -27,6 +27,13 @@
             android:onClick="appsClick"
             android:text="Apps"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:onClick="listAppsClick"
+            android:text="ListApps"
+            />
+
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"

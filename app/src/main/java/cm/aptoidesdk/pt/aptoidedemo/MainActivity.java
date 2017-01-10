@@ -14,6 +14,8 @@ import cm.aptoide.pt.aptoidesdk.Aptoide;
 import cm.aptoide.pt.aptoidesdk.entities.App;
 import cm.aptoide.pt.aptoidesdk.entities.Screenshot;
 import cm.aptoide.pt.aptoidesdk.entities.SearchResult;
+import cm.aptoide.pt.aptoidesdk.entities.misc.Group;
+import cm.aptoide.pt.aptoidesdk.entities.util.SyncEndlessController;
 import cm.aptoide.pt.utils.AptoideUtils;
 
 /**
@@ -23,6 +25,7 @@ import cm.aptoide.pt.utils.AptoideUtils;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
+    private SyncEndlessController<App> appEndlessController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,19 @@ public class MainActivity extends AppCompatActivity {
             tv.setText("app response: empty");
         } else {
             tv.setText(getAppText(app));
+        }
+    }
+
+    public void listAppsClick(View view) {
+
+        if (appEndlessController == null) {
+            appEndlessController = Aptoide.listApps(Group.GAMES);
+        }
+        List<App> first = appEndlessController.loadMore();
+        if (first.size() == 0) {
+            tv.setText("ListApps response: empty");
+        } else {
+            tv.setText("app name: " + first.get(0).getName());
         }
     }
 
