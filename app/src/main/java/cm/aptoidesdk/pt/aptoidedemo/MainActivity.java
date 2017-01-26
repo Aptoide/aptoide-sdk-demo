@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         sb.append("\nDescription:\n" + app.getMedia().getDescription() + "\n");
+        sb.append("\nIcon Path: " + app.getIconPath() + "\n");
+        sb.append("\nThumbnail Icon Path: " + app.getIconThumbnailPath() + "\n");
 
         return  AptoideUtils.HtmlU.parse(sb.toString());
     }
@@ -110,12 +112,15 @@ public class MainActivity extends AppCompatActivity {
         int i = 0;
         for (Ad ad : l) {
             sb.append(String.format(Locale.ENGLISH, "<b>Ad %d</b>", i++));
+            sb.append("\nStore Name: " + ad.getStore() + "\n");
             sb.append("\nApp Name: " + ad.getName() + "\n");
             sb.append("\nId: " + ad.getAppId() + "\n");
             sb.append("\nPackage Name: " + ad.getPackageName() + "\n");
             sb.append("\nVersion Name: " + ad.getVername() + "\n");
             sb.append("\nVersion Code: " + ad.getVercode() + "\n");
             sb.append("\nDescription: " + ad.getDescription() + "\n\n");
+            sb.append("\nIcon Path: " + ad.getIconPath() + "\n\n");
+            sb.append("\nThumbnail Icon Path: " + ad.getIconThumbnailPath() + "\n\n");
         }
         return AptoideUtils.HtmlU.parse(sb.toString());
     }
