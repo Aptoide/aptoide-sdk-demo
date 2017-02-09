@@ -43,5 +43,5 @@ dependencies {
 
   compile 'com.android.support:appcompat-v7:25.0.0'
 
-  compile 'cm.aptoide.pt:aptoidesdk:0.0.12'
+  compile 'cm.aptoide.pt:aptoidesdk:0.0.13'
 }

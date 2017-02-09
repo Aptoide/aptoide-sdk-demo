@@ -13,6 +13,7 @@ import cm.aptoide.pt.aptoidesdk.entities.SearchResult;
 import cm.aptoide.pt.aptoidesdk.entities.misc.Group;
 import cm.aptoide.pt.aptoidesdk.entities.util.SyncEndlessController;
 import cm.aptoide.pt.utils.AptoideUtils;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -118,5 +119,29 @@ public class MainActivity extends AppCompatActivity {
     } else {
       tv.setText("app name: " + first.get(0).getName());
     }
+  }
+
+  public void getAppsClick(View view) {
+    List<App> apps = Aptoide.getApps(createPackageList(), "apps");
+    if (apps == null) {
+      tv.setText("No apps retrived for given packages");
+    } else {
+      StringBuilder stringBuilder = new StringBuilder();
+      for (App app : apps) {
+        stringBuilder.append(
+            "App name: " + app.getName() + "\n" + " Package: " + app.getPackageName() + "\n");
+      }
+      tv.setText(stringBuilder.toString());
+    }
+  }
+
+  private ArrayList<String> createPackageList() {
+    ArrayList<String> packages = new ArrayList<>();
+    packages.add("com.facebook.orca");
+    packages.add("com.spotify.music");
+    packages.add("com.whatsapp");
+    packages.add("com.snapchat.android");
+    packages.add("com.supercell.clashofclans");
+    return packages;
   }
 }
