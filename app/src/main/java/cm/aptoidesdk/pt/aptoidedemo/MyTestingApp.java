@@ -1,7 +1,6 @@
 package cm.aptoidesdk.pt.aptoidedemo;
 
 import android.app.Application;
-
 import cm.aptoide.pt.aptoidesdk.Aptoide;
 
 /**
@@ -10,10 +9,9 @@ import cm.aptoide.pt.aptoidesdk.Aptoide;
 
 public class MyTestingApp extends Application {
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+  @Override public void onCreate() {
+    super.onCreate();
 
-        Aptoide.integrate(this, "oemid");
-    }
+    Aptoide.integrate(this, "oemid");
+  }
 }
