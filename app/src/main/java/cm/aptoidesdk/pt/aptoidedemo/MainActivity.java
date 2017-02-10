@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> packages = new ArrayList<>();
     packages.add("com.facebook.orca");
     packages.add("com.spotify.music");
+    packages.add("com.somefalse.package");
     packages.add("com.whatsapp");
     packages.add("com.snapchat.android");
     packages.add("com.supercell.clashofclans");
