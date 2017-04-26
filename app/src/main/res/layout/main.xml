@@ -46,6 +46,21 @@
         android:text="getApps"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        >
+
+      <include
+          layout="@layout/app_layout"
+          android:id="@+id/app1"
+          android:visibility="gone"
+          />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
