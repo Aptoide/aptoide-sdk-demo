@@ -19,6 +19,7 @@ import android.widget.Toast;
 import cm.aptoide.pt.aptoidesdk.Ad;
 import cm.aptoide.pt.aptoidesdk.Aptoide;
 import cm.aptoide.pt.aptoidesdk.entities.App;
+import cm.aptoide.pt.aptoidesdk.entities.AppResume;
 import cm.aptoide.pt.aptoidesdk.entities.Screenshot;
 import cm.aptoide.pt.aptoidesdk.entities.SearchResult;
 import cm.aptoide.pt.aptoidesdk.entities.misc.Group;
@@ -37,7 +38,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
   private TextView tv;
-  private SyncEndlessController<App> appEndlessController;
+  private SyncEndlessController<AppResume> appEndlessController;
   private DownloadManager downloadManager;
   private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {
 
@@ -214,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
     if (appEndlessController == null) {
       appEndlessController = Aptoide.listApps(Group.GAMES);
     }
-    List<App> first = appEndlessController.loadMore();
+    List<AppResume> first = appEndlessController.loadMore();
     if (first.size() == 0) {
       tv.setText("ListApps response: empty");
     } else {
