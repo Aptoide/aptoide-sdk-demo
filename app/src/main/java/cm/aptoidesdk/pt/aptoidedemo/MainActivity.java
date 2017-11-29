@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
   private TextView tv;
   private SyncEndlessController<AppResume> appEndlessController;
+  private SyncEndlessController<SearchResult> appEndlessControllerSearch;
   private DownloadManager downloadManager;
   private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {
 
@@ -111,7 +112,11 @@ public class MainActivity extends AppCompatActivity {
 
   public void searchClick(View view) {
 
-    List<SearchResult> l = Aptoide.searchApps("facebook", "apps");
+    if (appEndlessControllerSearch == null) {
+      appEndlessControllerSearch = Aptoide.searchApps("facebook", "apps");
+    }
+    List<SearchResult> l = appEndlessControllerSearch.loadMore();
+
     if (l == null || l.size() == 0) {
       tv.setText("search response: empty");
     } else {
